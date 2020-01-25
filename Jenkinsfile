@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Upload to AWS') {
      steps {
-      withAWS(credentials:'aws-static') {
+      withAWS(region:'us-east-2', credentials:'aws-static') {
         s3Upload(file:'index.html', bucket:'laksh-jenkins', path:'index.html')
       }
      }
